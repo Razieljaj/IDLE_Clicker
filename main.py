@@ -6,7 +6,8 @@ app = Flask(__name__)
 
 @app.route("/home")
 def hello_world():
-    return render_template("index.html")
+    score = 20
+    return render_template("index.html"),score
 
 
 
