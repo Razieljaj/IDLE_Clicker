@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/style.css">
+    <title>Connect</title>
+</head>
+<body>
+    <h1>Create an account</h1>
+    <a href="/login">I already have an account</a>
+    <form action="/" name="account" method="POST">
+        <p style="color: red;">{{error_message}}</p>
+        Type your pseudo here : <input type="text" name="pseudo" placeholder="Pseudo" required><br><br>
+        Type your password here (min. 8 char.): <input type="password" name="password" minlength="8" placeholder="Password" required ><br><br>
+        <input type="submit" name="submit">
+    </form>
+</body>
+</html>

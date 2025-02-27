@@ -1,13 +1,13 @@
 body {
-    background-color: rgb(129, 50, 204);
+    background-color: #8936e9;
 }
 
 .click {
-    background-color: rgb(28, 28, 221);
-    color: azure;
+    background-color: #4361EE;
+    color: #e996dc;
     margin: 20px;
     padding: 10px;
-    border: 3px solid rgb(5, 5, 73);
+    border: 3px solid #3F37C9;
     border-radius: 20px;
     text-align: center;
     transition: all 100ms;

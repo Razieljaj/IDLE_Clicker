@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/style.css">
+    <title>Connect</title>
+</head>
+<body>
+    <h1>If you already have an account</h1>
+    <a href="/">I don't have an account yet</a>
+    <form action="/login" name="login" method="POST">
+        Type your pseudo here : <input type="text" name="pseudo" placeholder="Pseudo" required><br><br>
+        Type your password here : <input type="password" name="password" minlength="8" placeholder="Password" required ><br><br>
+        <input type="submit" name="submit">
+    </form>
+</body>
+</html>
