@@ -23,10 +23,11 @@ def login():
         donnees = request.form
         pseudo = donnees.get('pseudo')
         password = donnees.get("password")
-        if login_account(pseudo, password) == True:
+        if len(login_account(pseudo, password)) > 0 :
             return redirect(url_for('home'))
         else:
-            return redirect(url_for('login'))
+            error_message = "This account does not exist, correct your mistake or if you don't have one yet create another"
+            return render_template("login.html", error_message = error_message)
     return render_template("login.html")
 
 score = 0
