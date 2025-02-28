@@ -20,3 +20,19 @@ def login_account(pseudo, password):
     account = res.fetchall()
     conn.close()
     return account
+
+def score_rise(id):
+    conn = sqlite3.connect('accounts.db')
+    cur = conn.cursor()
+    res = cur.execute("""UPDATE Data SET score = score + 1 WHERE id = ?;""", (id,))
+    conn.commit()
+    conn.close()
+    return True
+
+def get_user_id(pseudo):
+    conn = sqlite3.connect('accounts.db')
+    cur = conn.cursor()
+    res = cur.execute("""SELECT id FROM Data WHERE pseudo LIKE ?;""", (pseudo,))
+    id = res.fetchall()
+    conn.close()
+    return id 
