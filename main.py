@@ -41,12 +41,12 @@ def home():
     if "pseudo" in session:
         pseudo = session["pseudo"]
         user_id = get_user_id(pseudo)
-
+        data_user = get_user_data(user_id[0][0])
         if request.method == "POST":
-            score_rise(user_id)
-            return redirect(url_for("home"))
-
-        return render_template("login.html")
+            score_rise(user_id[0][0])
+            return render_template("index.html", data_user = data_user)
+        
+        return render_template("index.html", data_user = data_user)
     else:
         return redirect(url_for("login"))
 

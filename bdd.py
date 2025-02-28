@@ -24,10 +24,17 @@ def login_account(pseudo, password):
 def score_rise(id):
     conn = sqlite3.connect('accounts.db')
     cur = conn.cursor()
-    res = cur.execute("""UPDATE Data SET score = score + 1 WHERE id = ?;""", (id,))
+    cur.execute("""UPDATE Data SET score = score + 1 WHERE id = ?;""", (id,))
     conn.commit()
     conn.close()
     return True
+
+def get_user_data(id):
+    conn = sqlite3.connect('accounts.db')
+    cur = conn.cursor()
+    res = cur.execute("""SELECT * FROM Data WHERE id = ?;""", (id,))
+    data_user = res.fetchall()
+    return data_user
 
 def get_user_id(pseudo):
     conn = sqlite3.connect('accounts.db')
