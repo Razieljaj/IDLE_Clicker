@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ranking</title>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+    <h1>Ranking</h1>
+    {% if rank is not none %}
+        {% if rank|length == 0 %}
+            <p>Nobody is ranked. Play one game to be the first!</p>
+        {% else %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Username</th>
+                        <th>Score</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for account in range(rank|length) %}
+                        <tr>
+                            <td>{{ account + 1 }}</td>
+                            <td>{{ rank[account][1] }}</td>
+                            <td>{{ rank[account][3] }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% endif %}
+    {% endif %}
+</body>
+</html>

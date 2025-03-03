@@ -7,14 +7,24 @@
     <link rel="stylesheet" href="../static/style.css">
 </head>
 <body>
+    <a href="/ranking" class="menu">Ranking</a>
     <h1>The best clicker you'll never ever play</h1>
     <p> Hi {{data_user[0][1]}}, you can click the marvellous button to make your score rising </p>
-    <p>Score : {{data_user[0][3]}}</p>
-    <div style="text-align: center;"> 
+<div class="container">
+    <div> 
         <form action="" method="POST">
-            <button type="submit" value="click" class="click">Click me</button>
+            <button type="submit" value="click" class="click" name="action">Click me</button>
+            <p class="score">{{"%.2f"|format(data_user[0][3]|float )}}</p>
         </form>
     </div>
+    <div>    
+        <form action="" method="POST">
+            <button type="submit" value="upgrade" class="click" name="action">Upgrade</button> <p>Price : {{ "%.2f"|format(data_user[0][5]|float ) }}</p>
+        </form>
+        <p class="score">{{ "%.2f"|format(data_user[0][4]|float ) }}</p>
+    </div>
+</div>
+
 
 </body>
 </html>

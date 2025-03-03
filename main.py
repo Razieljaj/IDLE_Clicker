@@ -16,7 +16,7 @@ def connect():
             return redirect(url_for('home'))
         else:
             error_message = "Pseudo already taken, please choose another one."
-            return render_template("connect.html", error_message = error_message, pseudo = pseudo)
+            return render_template("connect.html", error_message = error_message)
     return render_template("connect.html")
 
 @app.route("/login", methods=['GET', 'POST'])
@@ -36,19 +36,32 @@ def login():
 
     return render_template("login.html")
 
+
+
+
 @app.route("/home", methods=['GET', 'POST'])
 def home():
     if "pseudo" in session:
         pseudo = session["pseudo"]
         user_id = get_user_id(pseudo)
         data_user = get_user_data(user_id[0][0])
+
         if request.method == "POST":
-            score_rise(user_id[0][0])
-            return render_template("index.html", data_user = data_user)
-        
-        return render_template("index.html", data_user = data_user)
+            action = request.form.get("action")
+            if action == "click":
+                score_rise(user_id[0][0])
+                return redirect(url_for("home"))
+            elif action == "upgrade" and data_user[0][3] >= data_user[0][5]:
+                score_decrease(user_id[0][0])
+                update_multiplier(user_id[0][0])
+        return render_template("index.html", data_user=data_user)
     else:
         return redirect(url_for("login"))
+
+@app.route("/ranking", methods=['GET', 'POST'])
+def ranking():
+    rank = get_ranking()
+    return render_template("ranking.html", rank=rank)
 
 
 

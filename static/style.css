@@ -1,17 +1,44 @@
 body {
-    background-color: #9966CC;
+    background: linear-gradient(36deg, rgba(43,27,58,1) 0%, rgba(47,1,91,1) 8%, rgba(43,27,58,1) 15%, rgba(47,1,91,1) 45%, rgba(79,25,131,1) 55%, rgba(67,11,121,1) 67%, rgba(43,27,58,1) 100%);
+    background-size: 200% 200vh;
+    background-repeat: no-repeat;
+    color: #e8baff;
+    font-family: 'Arial', sans-serif;
+    animation: AnimateBackground 20s ease infinite;
+}
+
+@keyframes AnimateBackground {
+    0% {
+    background-position: 0% 50%;
+    }
+    50% {
+    background-position: 100% 50%;
+    }
+    100% {
+    background-position: 0% 50%;
+    }
+}
+
+h1 {
+    text-align: center;
+    color: #f5fcff;
+    font-size: 2.5em;
+    margin-bottom: 30px;
 }
 
 .click {
-    background-color: #4361EE;
-    color: #e996dc;
-    margin: 20px;
-    padding: 10px;
-    border: 3px solid #3F37C9;
-    border-radius: 20px;
+    background-color: #8a2be2;
+    color: #e8baff;
+    margin-top: 30%;
+    padding: 15px 30px;
+    border: 3px solid #6a0dad;
+    border-radius: 25px;
     text-align: center;
-    transition: all 100ms;
-    cursor: default;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+    font-size: 1.1em;
+    box-shadow: 0 0px 50px rgba(228, 181, 255, 0.521);
+    transform: scale(1);
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -khtml-user-select: none;
@@ -21,19 +48,64 @@ body {
 }
 
 .click:hover {
-    background-color: rgb(53, 53, 226);
-    color: rgb(198, 191, 241);
-    border: 2px solid rgb(31, 31, 99);
-    border-radius: 10px;
-    text-align: center;
-    cursor: default;
+    background-color: #7a47c3;
+    color: #e2d7f0;
+    border: 2px solid #5f2a8b;
+    transform: scale(1.1);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
 .click:active {
-    background-color: rgb(91, 50, 204);
-    color: rgb(34, 0, 255);
-    border: 4px solid rgb(192, 192, 255);
+    background-color: #9b00d0;
+    color: #d1a8f0;
+    border: 4px solid #ff7aff;
     border-radius: 30px;
+    transform: scale(0.90);
+    box-shadow: 0 0px 100px rgba(231, 206, 236, 0.3);
+}
+
+.score {
+    color: #d1a8f0;
+    font-size: 30px;
+    animation: scoreRise 0.2s ease-in-out;
+}
+
+@keyframes scoreRise {
+    from {
+        color: #f08c8c;
+        font-size: 25px;
+        transform: skewY(-5deg);
+    }
+    to {
+        color: #8922d8;
+        font-size: 30px;
+    }
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     text-align: center;
-    cursor: default;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    background-color: #3d1f4f;
+}
+
+td, th {
+    border: 2px solid #d6a0ff;
+    text-align: left;
+    padding: 8px;
+    color: #e8baff;
+}
+
+tr:nth-child(even) {
+    background-color: #4e2351;
+}
+
+p {
+    text-align: center;
+    font-size: 1.2em;
 }
